@@ -1,6 +1,7 @@
 import express from 'express'
 import compression from 'compression'
 import { renderPage } from 'vite-plugin-ssr'
+import { createPinia } from 'pinia'
 
 const isProduction = process.env.NODE_ENV === 'production'
 const root = `${__dirname}/..`

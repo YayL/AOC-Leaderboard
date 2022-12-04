@@ -24,6 +24,7 @@
     "vue": "^3.2.33"
   },
   "devDependencies": {
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "pinia": "^2.0.27"
   }
 }

@@ -1,55 +1,38 @@
 <template>
-  <div class="layout">
-    <div class="navigation">
-      <a href="/" class="logo">
-        <img src="./logo.svg" height="64" width="64" alt="logo" />
-      </a>
-      <Link href="/">Home</Link>
-      <Link href="/about">About</Link>
-    </div>
-    <div class="content"><slot /></div>
-  </div>
+	<div id="home">
+		<div class="content"><slot /></div>
+	</div>
 </template>
 
-<script lang="ts" setup>
-import Link from './Link.vue'
-</script>
-
 <style>
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
-* {
-  box-sizing: border-box;
-}
-a {
-  text-decoration: none;
-}
-</style>
+	
+	body {
+		margin: 0;
+		--fbc-blue-60: #0060df;
+		--fbc-blue-70: #003eaa;
+		--fbc-gray-20: #ededf0;
+		--fbc-light-gray: #F0F0F4;
+		--fbc-white: #ffffff;
+		--fbc-transition: all .15s cubic-bezier(.07,.95,0,1);
+		--fbc-borders: 1px solid #ededf0;
+		--fbc-primary-text: #15141A;
+		--fbc-secondary-text: #5B5B66;
+		--fbc-font-size: 13px;
+	}
 
-<style scoped>
-.layout {
-  display: flex;
-  max-width: 900px;
-  margin: auto;
-}
-.content {
-  padding: 20px;
-  border-left: 2px solid #eee;
-  padding-bottom: 50px;
-  min-height: 100vh;
-}
-.navigation {
-  padding: 20px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1.8em;
-}
-.logo {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
+	#home {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	#app {
+		width: 100vw;
+		height: 100vh;
+	}
+
+	.content {
+		width: 100%;
+		height: 100%;
+	}
+
 </style>

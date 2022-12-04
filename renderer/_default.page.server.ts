@@ -1,4 +1,5 @@
 import { renderToString } from '@vue/server-renderer'
+import { createPinia } from 'pinia'
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr'
 import { createApp } from './app'
 import logoUrl from './logo.svg'
