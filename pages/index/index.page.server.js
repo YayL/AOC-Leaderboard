@@ -25,8 +25,6 @@ const set_ranks = (list) => {
 async function onBeforeRender(pageContext) {
 	
 	await fetchLeaderboards("2022");
-	
-	console.log(getGlobal('leaderboards'));
 
 	return {
 		pageContext: {

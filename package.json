@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
+    "node-fetch": "^3.3.0",
     "pinia": "^2.0.27"
   }
 }
