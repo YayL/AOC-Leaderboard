@@ -12,6 +12,7 @@ export { passToClient, onBeforeRender, fetchData};
 
 const passToClient = ['leaderboards'];
 const max_name_length = 20;
+const min_cache_time_or_something_in_minutes = 5;
 
 const get_start_time = (day, year) => {return new Date(`${String(year).padStart(4, '20')}-12-${String(day).padStart(2, '0')}T06:00:00+01:00`);}
 
@@ -90,17 +91,14 @@ function fetchData(year) {
 	const last_cache = getGlobal("last_cache");
 
 	if (last_cache != undefined) {
-		if (fetch_time.getMinutes() < (last_cache.getMinutes() + 5)) {
+		if (fetch_time < (last_cache / 1 + (min_cache_time_or_something_in_minutes * 60 * 1000))) {
 			console.log("[FetchData]: Trying cached data");
 			console.log(last_cache);
 			const data = getGlobal('data_cache');
 			if (data != undefined)
 				return data
-			else 
-				console.log("[FetchedData]: Cache failed")
 		}
 	}
-	console.log("[FetchData]: Fetching data")
 
 	setGlobal('last_cache', fetch_time);
 
