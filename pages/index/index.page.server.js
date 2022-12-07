@@ -93,7 +93,6 @@ function fetchData(year) {
 	if (last_cache != undefined) {
 		if (fetch_time < (last_cache / 1 + (min_cache_time_or_something_in_minutes * 60 * 1000))) {
 			console.log("[FetchData]: Trying cached data");
-			console.log(last_cache);
 			const data = getGlobal('data_cache');
 			if (data != undefined)
 				return data
