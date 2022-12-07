@@ -48,16 +48,19 @@ async function fetchLeaderboards(year) {
 
 }
 
-const calcScores = (data) => set_ranks(data.map((user) => ({
-	'#': 0,
-	Name: truncate_name(user.name),
-	Points: user.local_score,
-})).filter((user) => user.Points != 0).sort((a, b) => b.Points - a.Points));
+const calcScores = (data) => set_ranks(data.map((user) => {
+	console.log(user);
+	return {
+		'#': 0,
+		Name: user.name ? truncate_name(user.name) : "Anonymous User",
+		Points: user.local_score,
+	}
+}).filter((user) => user.Points != 0).sort((a, b) => b.Points - a.Points));
 
 const calcAvgTimeDiffScore = (members) => {
 	let scores = members.map((user, index) => ({
 		'#': 0,
-		Name: truncate_name(user.name),
+		Name: user.name ? truncate_name(user.name) : "Anonymous User",
 		Score: 0,
 		Completions: 0,
 	}));
