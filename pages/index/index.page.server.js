@@ -25,7 +25,7 @@ const set_ranks = (list) => {
 
 async function onBeforeRender(pageContext) {
 	
-	await fetchLeaderboards("2022");
+	await fetchLeaderboards("2023");
 
 	return {
 		pageContext: {
@@ -62,7 +62,7 @@ const calcAvgTimeDiffScore = (members) => {
 		Completions: 0,
 	}));
 	const DOM = new Date().getDate(); // Day of Month
-
+    
 	for (let i = 1; i <= DOM; ++i) {
 		scores.forEach((user, index) => {
 			const completions = members[index].completion_day_level;

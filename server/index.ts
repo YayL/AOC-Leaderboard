@@ -6,6 +6,19 @@ import { createPinia } from 'pinia'
 const isProduction = process.env.NODE_ENV === 'production'
 const root = `${__dirname}/..`
 
+const fs = require("fs");
+const util = require("util");
+const log_file = fs.createWriteStream(__dirname + "/../logs.log", {flags: "w"});
+const log_stdout = process.stdout;
+
+console.log = function() {
+    const time = new Date().toISOString().match(/(\d{2}:){2}\d{2}/)[0];
+    log_file.write(`[${time}]: ${util.format.apply(null, arguments)}\n`)
+    log_stdout.write(`[${time}]: ${util.format.apply(null, arguments)}\n`)
+}
+
+console.error = console.log
+
 startServer()
 
 async function startServer() {

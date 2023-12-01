@@ -26,7 +26,12 @@
 	import { reactive } from 'vue'
 
 	const props = defineProps(["data"]);
-	const state = reactive({ titles: Object.keys(props.data[0])})
+    let state: any;
+    if (props.data !== undefined && props.data[0] !== undefined) {
+        state = reactive({ titles: Object.keys(props.data[0])})
+    } else {
+        state = reactive({ titles: [] })
+    }
 
  </script>
 
